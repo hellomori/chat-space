@@ -1,0 +1,46 @@
+.chat-main
+  .chat-main__group-info
+    .chat-main__group-info__left
+      .chat-main__group-info__left__name
+        fizzbuzz
+      .chat-main__group-info__left__member
+        Member： name
+    .chat-main__group-info__right
+      = link_to "#", class: "chat-main__group-info__right__edit" do
+        Edit
+  .chat-main__message-list
+    .chat-main__message-list__once-area
+      .chat-main__message-list__once-area__top
+        .chat-main__message-list__once-area__top__name
+          name
+        .chat-main__message-list__once-area__top__date
+          2019/11/20(Wed) 17:43:01
+      .chat-main__message-list__once-area__bottom
+        hello
+    .chat-main__message-list__once-area
+      .chat-main__message-list__once-area__top
+        .chat-main__message-list__once-area__top__name
+          name
+        .chat-main__message-list__once-area__top__date
+          2019/11/20(Wed) 17:43:01
+      .chat-main__message-list__once-area__bottom
+        hello
+    .chat-main__message-list__once-area
+      .chat-main__message-list__once-area__top
+        .chat-main__message-list__once-area__top__name
+          name
+        .chat-main__message-list__once-area__top__date
+          2019/11/20(Wed) 17:43:01
+      .chat-main__message-list__once-area__bottom
+        hello       
+  .chat-main__message-form
+    .chat-main__message-form__text-area
+      %input{type: "text", placeholder: "type a message", class: "chat-main__message-form__text-area__text"}
+      .chat-main__message-form__text-area__image
+        %label{class: "chat-main__message-form__text-area__image__label"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "chat-main__message-form__text-area__image__file"}
+    .chat-main__message-form__send
+      %input{type: "submit", value: "Send", class: "chat-main__message-form__send__btn"}
+      
+
