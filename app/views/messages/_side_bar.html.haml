@@ -4,25 +4,15 @@
       .side-bar__user-name__top-items__name
         = current_user.name
       .side-bar__user-name__top-items__icons
-        = link_to "#", class: "side-bar__user-name__top-items__icons__btn--edit" do
+        = link_to new_group_path, class: "side-bar__user-name__top-items__icons__btn--edit" do
           = icon("fas", "edit") 
         = link_to edit_user_path(current_user), class: "side-bar__user-name__top-items__icons__btn--cog" do
           = icon("fas", "cog")
   .side-bar__group-list
-    .side-bar__group-list__once-area
-      .side-bar__group-list__once-area__name
-        TechCamp
-      .side-bar__group-list__once-area__message
-        まだメッセージがありません
-
-    .side-bar__group-list__once-area
-      .side-bar__group-list__once-area__name
-        TechCamp
-      .side-bar__group-list__once-area__message
-        まだメッセージがありません
-
-    .side-bar__group-list__once-area
-      .side-bar__group-list__once-area__name
-        TechCamp
-      .side-bar__group-list__once-area__message
-        まだメッセージがありません       
+    - current_user.groups.each do |group|
+      .side-bar__group-list__once-area
+        = link_to "#" do
+          .side-bar__group-list__once-area__name
+            = group.name
+          .side-bar__group-list__once-area__message
+            まだメッセージがありません
