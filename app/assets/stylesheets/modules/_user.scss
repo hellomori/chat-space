@@ -1,13 +1,12 @@
 .account-page {
-  .account-page__inner {
+  &__inner {
     width: 980px;
     margin: 60px auto;
     padding: 60px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-
-    .account-page__inner--left, .account-page__inner--right {
+    &--left, &--right {
       float: left;
       width: 50%;
     }
@@ -17,8 +16,7 @@
       display: block;
     }
   }
-
-  .account-page__header {
+  &__header {
     h2 {
       margin-bottom: 10px;
       letter-spacing: 3px;
