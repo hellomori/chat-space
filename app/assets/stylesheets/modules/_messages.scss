@@ -83,6 +83,7 @@
        font-size: 12px;
        color: #999999;
        margin-top: 15px;
+       display: flex;
       }
     }
     &__right {
@@ -129,42 +130,47 @@
   }
   &__message-form {
     height: 90px;
+    width: 100%;
     background-color: #d2d2d2;
     padding: 0 40px;
     display: flex;
     align-items: center;
-
-    &__text-area {
-      height: 50px;
+    &__input {
       width: 100%;
-      position: relative;
-      &__text {
+      display: flex;
+      align-items: center;
+      &__text-area {
         height: 50px;
-        width: 100%;
-        padding: 0 10px;
-      }
-      &__image {
-        position: absolute;
-        right: 10px;
-        bottom: 5px;
-        &__label {
-          font-size: 25px;
-          cursor: pointer;
-          cursor: hand;
+        width: calc(100% - 115px);
+        position: relative;
+        &__text {
+          height: 50px;
+          width: 100%;
+          padding: 0 10px;
+          &__image {
+            position: absolute;
+            right: 10px;
+            bottom: 1px;
+            &__label {
+              font-size: 30px;
+              cursor: pointer;
+              cursor: hand;
+              &__file {
+                display: none;
+              }
+            }
+          }
         }
-        &__file {
-          display: none;
-        }
       }
-    }
-    &__send {
-      height: 50px;
-      width: 100px;
-      margin-left: 15px;
-      &__btn {
-        background-color: #38aef0;
-        color: white;
-        padding: 12px 29px;
+      &__send {
+        height: 50px;
+        width: 100px;
+        &__btn {
+          background-color: #38aef0;
+          color: white;
+          padding: 12px 29px;
+          margin-left: 15px;
+        }
       }
     }
   }
