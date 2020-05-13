@@ -1,8 +1,9 @@
-$(function(){ 
+$(function() { 
+
   function buildHTML(message){
     if ( message.image ) {
       let html =
-      `<div class="chat-main__message-list__once-area">
+      `<div class="chat-main__message-list__once-area" data-message-id=${message.id}>
         <div class="chat-main__message-list__once-area__top">
           <div class="chat-main__message-list__once-area__top__name">
             ${message.user_name}
@@ -19,7 +20,7 @@ $(function(){
       return html;
     } else {
       let html =
-      `<div class="chat-main__message-list__once-area">
+      `<div class="chat-main__message-list__once-area" data-message-id=${message.id}>
         <div class="chat-main__message-list__once-area__top">
           <div class="chat-main__message-list__once-area__top__name">
             ${message.user_name}
@@ -58,4 +59,30 @@ $(function(){
       alert("メッセージ送信に失敗しました");
     });
   })
+
+  let reloadMessages = function() {
+    let last_message_id = $('.chat-main__message-list__once-area').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        let insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.chat-main__message-list').append(insertHTML);
+        $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
+      }
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
