@@ -61,7 +61,7 @@ $(function() {
   })
 
   let reloadMessages = function() {
-    let last_message_id = $('.chat-main__message-list__once-area').data("message-id");
+    let last_message_id = $('.chat-main__message-list__once-area:last').data("message-id");
     $.ajax({
       url: "api/messages",
       type: 'GET',
